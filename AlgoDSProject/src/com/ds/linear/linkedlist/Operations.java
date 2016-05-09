@@ -81,7 +81,6 @@ public class Operations {
 	public static void reversePrint(Node n)
 	{
 		Stack<Integer> s=new Stack<Integer>();
-		
 		while(n!=null)
 		{
 			s.push(n.data);
@@ -89,11 +88,36 @@ public class Operations {
 			n=n.next;
 		}
 		
-		
 		while(!s.isEmpty())
 		{
 			System.out.print(s.pop()+"-->");
 		}
+	}
+	/*
+	 * 
+	 * Index of Linked List start with zero
+	 * 
+	 */
+	
+	public static Node deleteAtIndex(Node head,int index)
+	{
+		
+		Node n=head;
+		
+		for(int i=1;i<index;i++)
+		{
+			if(n.next==null || n.next.next==null)
+			{
+				throw new IndexOutOfBoundsException("Index specified is greater then length of Linkedlist");
+			}
+			n=n.next;
+		}
+		
+		Node nextNode=n.next.next;
+		
+		n.next=nextNode;
+		
+		return head;
 	}
 	
 	

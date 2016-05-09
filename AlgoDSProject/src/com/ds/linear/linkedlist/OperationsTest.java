@@ -74,7 +74,24 @@ public class OperationsTest {
 	}
 	
 	
-	
+	@Test
+	public void testDeleteAtIndex()
+	{
+		Node head=Operations.insertFirst(null, 4);
+		
+		head=Operations.insertFirst(head, 3);
+		head=Operations.insertFirst(head, 2);
+		head=Operations.insertFirst(head, 1);
+		
+		Operations.iterate(head);
+		System.out.println();
+		System.out.println("-----");
+		
+		head=Operations.deleteAtIndex(head, 2);
+		
+		Operations.iterate(head);
+		
+	}
 	
 	
 }
