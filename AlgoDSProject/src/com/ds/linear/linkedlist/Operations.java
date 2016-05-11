@@ -4,122 +4,113 @@ import java.util.Stack;
 
 public class Operations {
 
-	
-	
-	public static void iterate(Node node)
-	{
-		
-		while(node!=null)
-		{
-			System.out.print(" "+node.data+"-->");
-			node=node.next;
+	public static void iterate(Node node) {
+
+		while (node != null) {
+			System.out.print(" " + node.data + "-->");
+			node = node.next;
 		}
 	}
-	
-	
-	
-	public static Node insertFirst(Node node,int data)
-	{
-		
-		Node head=new Node(data);
-		
-		if(node!=null)
-		{
-			head.next=node;
+
+	public static Node insertFirst(Node node, int data) {
+
+		Node head = new Node(data);
+
+		if (node != null) {
+			head.next = node;
 		}
 		return head;
 	}
-	
-	public static Node insertLast(Node node,int data)
-	{
-		
-		Node n=new Node(data);
-		
-		Node head=node;
-		if(head==null)
-		{
-			
+
+	public static Node insertLast(Node node, int data) {
+
+		Node n = new Node(data);
+
+		Node head = node;
+		if (head == null) {
+
 			return n;
-		}
-		else
-		{
-			
-			while(head.next!=null)
-			{
-				head=head.next;
+		} else {
+
+			while (head.next != null) {
+				head = head.next;
 			}
-			
-			head.next=n;
-			
+
+			head.next = n;
+
 			return node;
 		}
 	}
-	
-	public static Node insertAtIndex(Node n,int index,int data) 
-	{
-		Node newNode=new Node(data);
-		Node head=n;
-		
-		for(int i=0;i<index;i++)
-		{
-			if(head.next==null)
-			{
+
+	public static Node insertAtIndex(Node n, int index, int data) {
+		Node newNode = new Node(data);
+		Node head = n;
+
+		for (int i = 0; i < index; i++) {
+			if (head.next == null) {
 				throw new IndexOutOfBoundsException();
 			}
-			head=head.next;
-			
+			head = head.next;
+
 		}
-		
-		Node nextNode=head.next;
-		head.next=newNode;
-		newNode.next=nextNode;
-		
-		
+
+		Node nextNode = head.next;
+		head.next = newNode;
+		newNode.next = nextNode;
+
 		return n;
 	}
-	
-	public static void reversePrint(Node n)
-	{
-		Stack<Integer> s=new Stack<Integer>();
-		while(n!=null)
-		{
+
+	public static void reversePrint(Node n) {
+		Stack<Integer> s = new Stack<Integer>();
+		while (n != null) {
 			s.push(n.data);
-			
-			n=n.next;
+
+			n = n.next;
 		}
-		
-		while(!s.isEmpty())
-		{
-			System.out.print(s.pop()+"-->");
+
+		while (!s.isEmpty()) {
+			System.out.print(s.pop() + "-->");
 		}
 	}
+
 	/*
 	 * 
 	 * Index of Linked List start with zero
-	 * 
 	 */
-	
-	public static Node deleteAtIndex(Node head,int index)
-	{
-		
-		Node n=head;
-		
-		for(int i=1;i<index;i++)
-		{
-			if(n.next==null || n.next.next==null)
-			{
-				throw new IndexOutOfBoundsException("Index specified is greater then length of Linkedlist");
+
+	public static Node deleteAtIndex(Node head, int index) throws Exception {
+
+		Node n = head;
+
+		if (head == null) {
+			throw new Exception("Nothing to delete LinkedList Empty");
+		} else if (head.next == null && index == 1) {
+			return null;
+		} else if (head.next != null && head.next.next == null) {
+			if (index == 1) {
+				return head.next;
+			} else if (index == 2) {
+				head.next = null;
+				return head;
 			}
-			n=n.next;
+
+		} else {
+			for (int i = 1; i < index; i++) {
+				if (n.next == null || n.next.next == null) {
+					throw new IndexOutOfBoundsException(
+							"Index specified is greater then length of Linkedlist");
+				}
+				n = n.next;
+			}
+
+			Node nextNode = n.next.next;
+
+			n.next = nextNode;
+
+			return head;
 		}
-		
-		Node nextNode=n.next.next;
-		
-		n.next=nextNode;
-		
-		return head;
+		return null;
 	}
-	
-	
-	
+
 }

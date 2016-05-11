@@ -64,7 +64,7 @@ public class OperationsTest {
 	}
 
 	@Test
-	public void testDeleteAtIndex() {
+	public void testDeleteAtIndex() throws Exception {
 		Node head = Operations.insertFirst(null, 4);
 
 		head = Operations.insertFirst(head, 3);
