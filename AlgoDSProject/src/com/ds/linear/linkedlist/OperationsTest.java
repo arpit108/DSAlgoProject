@@ -80,5 +80,62 @@ public class OperationsTest {
 		Operations.iterate(head);
 
 	}
+	
+	@Test
+	public void testReverse()
+	{
+		Node head = Operations.insertFirst(null, 4);
 
+		head = Operations.insertFirst(head, 3);
+		head = Operations.insertFirst(head, 2);
+		head = Operations.insertFirst(head, 1);
+		
+		
+		Operations.iterate(head);
+		System.out.println();
+		System.out.println("-----");
+		
+		head=Operations.reverse(head);
+		
+		
+		Operations.iterate(head);
+		System.out.println();
+		System.out.println("-----");
+	}
+	
+
+	@Test
+	public void testMergeLL()
+	{
+		Node head1 = Operations.insertFirst(null, 11);
+
+		head1 = Operations.insertFirst(head1, 10);
+		head1 = Operations.insertFirst(head1, 7);
+		head1 = Operations.insertFirst(head1, 5);
+		head1 = Operations.insertFirst(head1, 1);
+		
+		Operations.iterate(head1);
+		System.out.println();
+		System.out.println("-----");
+		
+		Node head2 = Operations.insertFirst(null, 20);
+
+		head2 = Operations.insertFirst(head2, 17);
+		head2 = Operations.insertFirst(head2, 15);
+		head2 = Operations.insertFirst(head2, 12);
+		head2 = Operations.insertFirst(head2, 2);
+		
+		Operations.iterate(head2);
+		System.out.println();
+		System.out.println("-----");
+		
+		Node mergedNode=Operations.mergeSortedLL(head1, head2);
+		
+		Operations.iterate(mergedNode);
+		System.out.println();
+		System.out.println("-----");
+		
+	}
+	
+	
 }
