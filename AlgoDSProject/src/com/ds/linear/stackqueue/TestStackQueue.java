@@ -1,6 +1,8 @@
 package com.ds.linear.stackqueue;
 
 
+import java.util.Stack;
+
 import org.junit.Test;
 
 public class TestStackQueue {
@@ -21,5 +23,21 @@ public class TestStackQueue {
 	}
 	
 	
-	
+	@Test
+	public void testSort()
+	{
+		Stack<Integer> s=new Stack<>();
+		
+		s.push(20);
+		
+		s.push(11);
+		
+		s.push(21);
+		
+		s.push(51);
+		
+		Stack r=SortStack.sortStack(s);
+		
+		SortStack.printStack(r);
+	}
 }
