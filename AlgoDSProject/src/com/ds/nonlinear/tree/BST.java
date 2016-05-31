@@ -1,11 +1,11 @@
 package com.ds.nonlinear.tree;
 
-public class BinaryTreeNode {
+public class BST {
 
-	BinaryTreeNode left;
-	BinaryTreeNode right;
+	BST left;
+	BST right;
 	int data;
-	public BinaryTreeNode(int data)
+	public BST(int data)
 	{
 		this.data=data;
 		this.left=null;
